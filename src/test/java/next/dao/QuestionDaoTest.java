@@ -1,7 +1,7 @@
 package next.dao;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -14,7 +14,7 @@ import next.model.Question;
 public class QuestionDaoTest {
     private static final Logger log = LoggerFactory.getLogger(QuestionDaoTest.class);
     
-    @Before
+    @BeforeEach
     public void setup() {
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
         populator.addScript(new ClassPathResource("jwp.sql"));
