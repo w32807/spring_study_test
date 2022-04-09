@@ -42,5 +42,12 @@
         1) 3번 질문 해결 시 같이 적용
 
 #### 7. next.web.qna package의 ShowController는 멀티 쓰레드 상황에서 문제가 발생하는 이유에 대해 설명하라.
+
 #### 8. show.jsp에서 답변 달 때, 답변의 갯수를 최신화 하는 로직 추가하기
+    해결
+        1) AnswerDao에 Count 메소드 추가
+
+#### 9. API를 위해 질문 목록을 JSON으로 반환하는 컨트롤러 추가
+    해결
+        1) ListQnaController 추가
 
