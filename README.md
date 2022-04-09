@@ -34,7 +34,13 @@
         3) ForwardController에서 세션에 담긴 User를 꺼내서 전달 (/qna/form.jsp에만 전달하고 싶지만 일단 해결먼저.)
 
 #### 5. 질문목록의 답변목록을 동적인 jsp로 구현하기
-    해결) show.jsp의 댓글을 jstl로 변경
+    해결
+        1) show.jsp의 댓글을 jstl로 변경
+
+#### 6. 한글 필터 적용
+    해결
+        1) 3번 질문 해결 시 같이 적용
 
 #### 7. next.web.qna package의 ShowController는 멀티 쓰레드 상황에서 문제가 발생하는 이유에 대해 설명하라.
-* 
+#### 8. show.jsp에서 답변 달 때, 답변의 갯수를 최신화 하는 로직 추가하기
+

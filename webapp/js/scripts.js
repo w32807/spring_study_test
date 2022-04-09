@@ -20,6 +20,8 @@ function onSuccess(json, status){
   var answer = json.answer;
   var answerTemplate = $("#answerTemplate").html();
   var template = answerTemplate.format(answer.writer, new Date(answer.createdDate), answer.contents, answer.answerId, answer.answerId);
+
+  $("#countOfComment").html(json.countOfComment);
   $(".qna-comment-slipp-articles").prepend(template);
 }
 
