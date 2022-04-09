@@ -23,7 +23,6 @@
         2) CreateQnaController의 execute 로직 구현
         3) CharacterEncodingFilter에 @WebFilter("/*")를 이용하여 한글 인코딩
             (필터는 서블릿 컨테이너에 URL로 접속할 때 마다 실행된다)
-        
 
 #### 4. 로그인하지 않은 사용자도 질문하기가 가능하다.
     요구사항
@@ -33,5 +32,9 @@
         1) home.jsp에서 jstl의 if문을 이용하여 로그인 여부에 따라 질문하기 버튼을 보여준다.
         2) HomeController에서 getSession()으로 세션을 얻어와서 로그인 여부를 판단하는 변수를 home.jsp로 전달한다.
         3) ForwardController에서 세션에 담긴 User를 꺼내서 전달 (/qna/form.jsp에만 전달하고 싶지만 일단 해결먼저.)
+
+#### 5. 질문목록의 답변목록을 동적인 jsp로 구현하기
+    해결) show.jsp의 댓글을 jstl로 변경
+
 #### 7. next.web.qna package의 ShowController는 멀티 쓰레드 상황에서 문제가 발생하는 이유에 대해 설명하라.
 * 
