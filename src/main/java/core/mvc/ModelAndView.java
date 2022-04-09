@@ -15,6 +15,7 @@ public class ModelAndView {
         this.view = view;
     }
 
+    // Method 체이닝을 위해 반환값을 자기 자신으로 준다.
     public ModelAndView addObject(String attributeName, Object attributeValue) {
         model.put(attributeName, attributeValue);
         return this;
