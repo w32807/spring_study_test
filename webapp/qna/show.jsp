@@ -35,7 +35,7 @@
 					</div>
 					<div class="article-util">
 						<ul class="article-util-list">
-						    <c:if test="${loginFailed}">
+						    <c:if test="${isWriter}">
                                 <li>
                                     <a class="link-modify-article" href="#">수정</a>
                                 </li>

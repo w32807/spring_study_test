@@ -20,7 +20,7 @@ public class CreateQnaController extends AbstractController {
 
     @Override
     public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Question question = new Question(request.getParameter("writer")
+        Question question = new Question(request.getParameter("writerId")
                 , request.getParameter("title")
                 , request.getParameter("contents"));
 

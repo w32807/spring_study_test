@@ -9,17 +9,16 @@ CREATE TABLE USERS (
 	PRIMARY KEY               (userId)
 );
 
-INSERT INTO USERS VALUES('admin', 'password', '자바지기', 'admin@slipp.net');
+INSERT INTO USERS VALUES('admin', '1234', '자바지기', 'admin@slipp.net');
 INSERT INTO USERS VALUES('user1', '1234', '사용자', 'user@google.com');
-INSERT INTO USERS VALUES ('user2', '1234', '자바지기', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user3', '1234', '김문수', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user4', '1234', 'johnburr', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user5', '1234', 'javajigi', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user6', '1234', 'Toby Lee', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user7', '1234', 'eungju', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user8', '1234', 'Hanghee Yi', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user9', '1234', 'jhindhal.jhang', 'kkk@google.com');
-INSERT INTO USERS VALUES ('user10', '1234', '강우', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user2', '1234', '김문수', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user3', '1234', 'johnburr', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user4', '1234', 'javajigi', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user5', '1234', 'Toby Lee', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user6', '1234', 'eungju', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user7', '1234', 'Hanghee Yi', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user8', '1234', 'jhindhal.jhang', 'kkk@google.com');
+INSERT INTO USERS VALUES ('user9', '1234', '강우', 'kkk@google.com');
 
 
 DROP TABLE IF EXISTS QUESTIONS;
@@ -46,7 +45,7 @@ CREATE TABLE ANSWERS (
 );
 
 INSERT INTO QUESTIONS (questionId, writer, title, contents, createdDate, countOfAnswer) VALUES
-(1, 'user2',
+(1, 'admin',
 '국내에서 Ruby on Rails와 Play가 활성화되기 힘든 이유는 뭘까?', 
 'Ruby on Rails(이하 RoR)는 2006년 즈음에 정말 뜨겁게 달아올랐다가 금방 가라 앉았다. Play 프레임워크는 정말 한 순간 잠시 눈에 뜨이다가 사라져 버렸다. RoR과 Play 기반으로 개발을 해보면 정말 생산성이 높으며, 웹 프로그래밍이 재미있기까지 하다. Spring MVC + JPA(Hibernate) 기반으로 진행하면 설정할 부분도 많고, 기본으로 지원하지 않는 기능도 많아 RoR과 Play에서 기본적으로 지원하는 기능을 서비스하려면 추가적인 개발이 필요하다.',
 CURRENT_TIMESTAMP(), 0);
@@ -59,7 +58,7 @@ INSERT INTO QUESTIONS (questionId, writer, title, contents, createdDate, countOf
 CURRENT_TIMESTAMP(), 0);
 
 INSERT INTO QUESTIONS (questionId, writer, title, contents, createdDate, countOfAnswer) VALUES
-(3, 'user2',
+(3, 'admin',
 'scala에서 named parameter를 활용한 test fixture 생성 방법', 
 '자바로 구현할 때 귀찮은 작업 중의 하나는 객체의 복잡도가 증가하는 경우 test fixture를 생성하는 것이 여간 귀찮은 작업이 아니다.
 스칼라는 named parameter를 활용해 test fixture를 생성할 수 있다.',
@@ -67,7 +66,7 @@ CURRENT_TIMESTAMP(), 0);
 
 
 INSERT INTO QUESTIONS (questionId, writer, title, contents, createdDate, countOfAnswer) VALUES
-(4, 'user2',
+(4, 'admin',
 'DB 설계할 때 table id는 어떤 방식을 사용하나요?', 
 '어느 순간부터 DB id를 설계할 때 특별히 신경을 쓰지 않은 것 같네요. 최근에는 JPA 사용하면서 무의식적으로 auto increment를 사용하고 있어요. 물론 auto increment가 적합한 경우도 있겠지만 그렇지 않은 경우도 많다고 생각해요. 보통 DB 설계할 때 각 테이블의 id는 어떤 방식을 사용하나요?
 UUID를 사용하는 것도 하나의 방식이 될 수 있을거 같은데요. UUID 사용에 따른 장단점은 JPA Implementation Patterns: Using UUIDs As Primary Keys 문서에서 다루고 있고, 단점을 극복하는 방법을 댓글에서 볼 수 있네요.
@@ -84,7 +83,7 @@ jre 버전 설정
 CURRENT_TIMESTAMP(), 0);
 
 INSERT INTO QUESTIONS (questionId, writer, title, contents, createdDate, countOfAnswer) VALUES
-(6, 'user2',
+(6, 'admin',
 '프로그래머가 알아야할 기본 지식은 어디까지일까?', 
 '오늘 무엇인가 정리하다가 도대체 프로그래머가 알아야하는 기본 지식은 어디까지일까라는 의문이 들었다. 물론 컴퓨터 기본 구조, 네트워크, 자료 구조, 알고리즘, C, C++, 자바, 다양한 프레임워크 등등 모든 영역을 잘하면 좋겠지만 모든 영역을 학습하기에는 지금의 지식이 너무 방대하기 때문이다.',
 CURRENT_TIMESTAMP(), 0);
@@ -111,7 +110,7 @@ INSERT INTO ANSWERS (writer, contents, createdDate, questionId) VALUES
 CURRENT_TIMESTAMP(), 7);
 
 INSERT INTO QUESTIONS (questionId, writer, title, contents, createdDate, countOfAnswer) VALUES
-(8, 'user2',
+(8, 'admin',
 'anonymous inner class는 final 변수에만 접근해야 하는 이유는?', 
 '오늘 자바 8에 추가된 람다와 관련한 내용을 읽다가 다음과 같이 내용이 있어 궁금증이 생겼다.
 람다 표현식에서 변수를 변경하는 작업은 스레드에 안전하지 않다. - 가장 빨리 만나는 자바8 28페이지...

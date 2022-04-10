@@ -37,6 +37,8 @@ public class AnswerDao {
     public Answer findById(long answerId) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         String sql = "SELECT answerId, writer, contents, createdDate, questionId FROM ANSWERS WHERE answerId = ?";
+        //String sql = "SELECT A.answerId, B.name AS writer, A.contents, A.createdDate, A.questionId FROM ANSWERS A " +
+          //      "INNER JOIN USERS B ON (A.writer = B.userId) WHERE A.answerId = ?";
 
         RowMapper<Answer> rm = new RowMapper<Answer>() {
             @Override
@@ -51,9 +53,13 @@ public class AnswerDao {
 
     public List<Answer> findAllByQuestionId(long questionId) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        // 댓글은 로그인 안 해도 달 수 있음
         String sql = "SELECT answerId, writer, contents, createdDate FROM ANSWERS WHERE questionId = ? "
                 + "order by answerId desc";
 
+        /*String sql = "SELECT A.answerId, B.name AS writer, A.contents, A.createdDate FROM ANSWERS A "
+                + "INNER JOIN USERS B ON (A.writer = B.userId) WHERE A.questionId = ? "
+                + "ORDER BY A.answerId DESC";*/
         RowMapper<Answer> rm = new RowMapper<Answer>() {
             @Override
             public Answer mapRow(ResultSet rs) throws SQLException {

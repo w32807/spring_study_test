@@ -38,14 +38,15 @@ public class QuestionDao {
     
     public List<Question> findAll() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        String sql = "SELECT questionId, writer, title, createdDate, countOfAnswer FROM QUESTIONS "
-                + "order by questionId desc";
 
+        String sql = "SELECT A.questionId, B.userId AS writerId, B.name AS writer, A.title, A.createdDate, A.countOfAnswer FROM QUESTIONS A "
+                + "INNER JOIN USERS B ON (A.writer = B.userId) ORDER BY A.questionId DESC";
         RowMapper<Question> rm = new RowMapper<Question>() {
             @Override
             public Question mapRow(ResultSet rs) throws SQLException {
-                return new Question(rs.getLong("questionId"), rs.getString("writer"), rs.getString("title"), null,
-                        rs.getTimestamp("createdDate"), rs.getInt("countOfAnswer"));
+                return new Question(rs.getLong("questionId"), rs.getString("writerId"), rs.getString("writer")
+                        , rs.getString("title"), null, rs.getTimestamp("createdDate")
+                        , rs.getInt("countOfAnswer"));
             }
 
         };
@@ -55,14 +56,18 @@ public class QuestionDao {
 
     public Question findById(long questionId) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        String sql = "SELECT questionId, writer, title, contents, createdDate, countOfAnswer FROM QUESTIONS "
-                + "WHERE questionId = ?";
+        /*String sql = "SELECT questionId, writer, title, contents, createdDate, countOfAnswer FROM QUESTIONS "
+                + "WHERE questionId = ?";*/
+
+        String sql = "SELECT A.questionId, B.userId AS writerId, B.name AS writer, A.title, A.contents, A.createdDate, A.countOfAnswer FROM QUESTIONS A "
+                + "INNER JOIN USERS B ON (A.writer = B.userId) WHERE questionId = ?";
 
         RowMapper<Question> rm = new RowMapper<Question>() {
             @Override
             public Question mapRow(ResultSet rs) throws SQLException {
-                return new Question(rs.getLong("questionId"), rs.getString("writer"), rs.getString("title"),
-                        rs.getString("contents"), rs.getTimestamp("createdDate"), rs.getInt("countOfAnswer"));
+                return new Question(rs.getLong("questionId"), rs.getString("writerId"), rs.getString("writer")
+                        , rs.getString("title"), rs.getString("contents"), rs.getTimestamp("createdDate")
+                        , rs.getInt("countOfAnswer"));
             }
         };
 
