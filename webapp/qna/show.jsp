@@ -76,8 +76,8 @@
 										</li>
 										<li>
 											<form class="form-delete" action="/api/qna/deleteAnswer" method="POST">
-												<input type="hidden" name="answerId" value="${each.answerId}">
-												<button type="submit" class="link-delete-article">삭제</button>
+												<button type="submit" class="link-delete-article"
+												    onclick="deleteAnswer(event, ${each.answerId}, ${each.questionId})">삭제</button>
 											</form>
 										</li>
 									</ul>
@@ -126,8 +126,7 @@
 			</li>
 			<li>
 				<form class="form-delete" action="/api/qna/deleteAnswer" method="POST">
-					<input type="hidden" name="answerId" value="{4}" />
-					<button type="submit" class="link-delete-article">삭제</button>
+					<button type="submit" class="link-delete-article" onclick="deleteAnswer(event, {3}, {4})">삭제</button>
 				</form>
 			</li>
 		</ul>
